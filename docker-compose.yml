@@ -17,12 +17,15 @@ services:
     container_name: redis
     command: redis-server --appendonly yes
     ports:
-      - "${REDIS_PORT}:6379"
+      - target: 6379
+        published: "${REDIS_PORT}"
+        protocol: tcp
+        mode: host
     volumes:
       - redis_data:/data
     restart: always
     environment:
-      REDIS_REPLICATION_MODE: master
+      - REDIS_REPLICATION_MODE: master
 
 volumes:
   redis_data:
