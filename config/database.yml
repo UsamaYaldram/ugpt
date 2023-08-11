@@ -6,18 +6,20 @@ default: &default
 development:
   <<: *default
   database: ugpt_development
-  host: <= ENV['POSTGRES_HOST'] >>>
-  port: <= ENV['POSTGRES_PORT] %>
-  username: <= ENV['POSTGRES_DBUSER'] %>
-  password: <<%= ENV['POSTGRES_PASSWORD'] >
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
+  username: <%= ENV['POSTGRES_DBUSER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+
 test:
   <<: *default
   database: ugpt_test
-  host: <= ENV['POSTGRES_HOST'] >>
-  port: <<%= ENV['POSTGRES_PORT'] >>
-  username: <= ENV['POSTGRES_DBUSER'] %>
-  password: <= ENV['POSTGRES_PASSWORD'] >
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
+  username: <%= ENV['POSTGRES_DBUSER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+
 production:
   <<: *default
   database: ugpt_production
-  url: <= ENV['DATABASE_URL"] %>
+  url: <%= ENV['DATABASE_URL'] %>
